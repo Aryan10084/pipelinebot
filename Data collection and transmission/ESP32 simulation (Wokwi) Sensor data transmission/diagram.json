@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "author": "Aryan Dwivedi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "chip-mq2", "id": "chip1", "top": 106.62, "left": 177.6, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -124.5, "left": -91.8, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -126.1, "left": 76.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "esp:5V", "chip1:VCC", "red", [ "h-23.81", "v38.4", "h144", "v-124.8" ] ],
+    [ "esp:GND.2", "chip1:GND", "black", [ "h52.84", "v96" ] ],
+    [ "dht1:SDA", "esp:4", "green", [ "v19.2", "h57.7", "v-28.8", "h124.8", "v153.6" ] ],
+    [ "esp:GND.2", "pot1:GND", "black", [ "v0" ] ],
+    [ "esp:3V3", "pot1:VCC", "green", [ "h4.99", "v-67.2", "h115.2" ] ],
+    [ "chip1:AO", "esp:35", "green", [ "h-38.4", "v115.2", "h-182.4", "v-182.4" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v9.6", "h-144.4", "v115.2" ] ]
+  ],
+  "dependencies": {}
+}

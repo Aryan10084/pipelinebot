@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Sensor Data</h1>
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>Temperature (°C)</th>
+            <th>Humidity (%)</th>
+            <th>Gas Level (ppm)</th>
+            <th>Pressure (Pa)</th>
+        </tr>
+        {% for data in data %}
+        <tr>
+            <td>{{ data['timestamp'] }}</td>
+            <td>{{ data['temperature'] }}</td>
+            <td>{{ data['humidity'] }}</td>
+            <td>{{ data['gasLevel'] }}</td>
+            <td>{{ data['pressure'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
